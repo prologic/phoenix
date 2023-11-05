@@ -19,6 +19,7 @@ func GetGinEngine(cfg *config.Config, db *gorm.DB) *gin.Engine {
 
 	engine.LoadHTMLGlob("templates/*")
 	engine.Static("/assets", "./assets")
+	engine.StaticFile("/robots.txt", "./assets/robots.txt")
 
 	engine.Use(SecurityHeadersMiddleware)
 
